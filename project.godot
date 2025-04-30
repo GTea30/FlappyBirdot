@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Flappy Birdot"
+run/main_scene="uid://dbgsuau53rwfb"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=144
+window/size/viewport_height=256
+window/stretch/mode="canvas_items"
 
 [rendering]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbgsuau53rwfb"]
+
+[ext_resource type="Texture2D" uid="uid://sqi3pfrg8h01" path="res://import/SpriteSheet.webp" id="1_hyk8p"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(72, 128)
+texture = ExtResource("1_hyk8p")
+region_enabled = true
+region_rect = Rect2(0, 0, 144, 256)
