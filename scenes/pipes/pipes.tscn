@@ -1,17 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://kdlk17wpe6cr"]
+[gd_scene load_steps=4 format=3 uid="uid://kdlk17wpe6cr"]
 
 [ext_resource type="Texture2D" uid="uid://sqi3pfrg8h01" path="res://import/SpriteSheet.webp" id="1_o61fm"]
 
-[node name="Pipes" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o61fm"]
+size = Vector2(26, 134)
 
-[node name="Top Pipe" type="Sprite2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls657"]
+size = Vector2(26, 120)
+
+[node name="Pipes" type="Node2D"]
+
+[node name="TopPipe" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TopPipe"]
 position = Vector2(0, -67)
 texture = ExtResource("1_o61fm")
 region_enabled = true
 region_rect = Rect2(302, 1, 26, 134)
 
-[node name="Bottom Pipe" type="Sprite2D" parent="."]
-position = Vector2(0, 60)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe"]
+position = Vector2(0, -67)
+shape = SubResource("RectangleShape2D_o61fm")
+
+[node name="Bottom Pipe" type="StaticBody2D" parent="."]
+position = Vector2(0, 127)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottom Pipe"]
+position = Vector2(0, -67)
 texture = ExtResource("1_o61fm")
 region_enabled = true
 region_rect = Rect2(330, 0, 26, 120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Pipe"]
+position = Vector2(0, -67)
+shape = SubResource("RectangleShape2D_ls657")
