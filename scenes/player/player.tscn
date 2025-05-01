@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://56mee7d63dbj"]
+[gd_scene load_steps=8 format=3 uid="uid://56mee7d63dbj"]
 
 [ext_resource type="Texture2D" uid="uid://sqi3pfrg8h01" path="res://import/SpriteSheet.webp" id="1_8afob"]
+[ext_resource type="Script" uid="uid://dfrpqtf187bs3" path="res://scenes/player/player.gd" id="1_dovo2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
 atlas = ExtResource("1_8afob")
@@ -35,12 +36,14 @@ animations = [{
 radius = 5.0
 height = 16.0
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p47bc")
-frame_progress = 0.116678
+frame_progress = 0.195637
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
