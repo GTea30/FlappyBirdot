@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://kdlk17wpe6cr"]
+[gd_scene load_steps=2 format=3 uid="uid://kdlk17wpe6cr"]
+
+[ext_resource type="Texture2D" uid="uid://sqi3pfrg8h01" path="res://import/SpriteSheet.webp" id="1_o61fm"]
 
 [node name="Pipes" type="StaticBody2D"]
+
+[node name="Top Pipe" type="Sprite2D" parent="."]
+position = Vector2(0, -67)
+texture = ExtResource("1_o61fm")
+region_enabled = true
+region_rect = Rect2(302, 1, 26, 134)
+
+[node name="Bottom Pipe" type="Sprite2D" parent="."]
+position = Vector2(0, 60)
+texture = ExtResource("1_o61fm")
+region_enabled = true
+region_rect = Rect2(330, 0, 26, 120)
