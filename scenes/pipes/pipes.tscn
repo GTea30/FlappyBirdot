@@ -11,8 +11,12 @@ size = Vector2(26, 120)
 
 [node name="Pipes" type="Node2D"]
 script = ExtResource("1_ls657")
+min_distance = 20
+max_distance = 40
+speed = 35
 
 [node name="TopPipe" type="StaticBody2D" parent="."]
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="TopPipe"]
@@ -25,16 +29,17 @@ region_rect = Rect2(302, 1, 26, 134)
 position = Vector2(0, -67)
 shape = SubResource("RectangleShape2D_o61fm")
 
-[node name="Bottom Pipe" type="StaticBody2D" parent="."]
+[node name="BottomPipe" type="StaticBody2D" parent="."]
 position = Vector2(0, 127)
+collision_layer = 2
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Bottom Pipe"]
+[node name="Sprite2D" type="Sprite2D" parent="BottomPipe"]
 position = Vector2(0, -67)
 texture = ExtResource("1_o61fm")
 region_enabled = true
 region_rect = Rect2(330, 0, 26, 120)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Pipe"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe"]
 position = Vector2(0, -67)
 shape = SubResource("RectangleShape2D_ls657")
