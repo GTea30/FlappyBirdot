@@ -4,6 +4,8 @@ extends CharacterBody2D;
 @export var gravity = 10;
 @export var tilt: float = 0.05;
 
+var status = true;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     $AnimatedSprite2D.play();
@@ -11,15 +13,20 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    # Fall
-    self.velocity.y += gravity;
-    if self.rotation < PI / 2 and self.velocity.y >= 0:
-        self.rotation += tilt;
+    # Check to see if collision happened
+    if get_slide_collision_count() > 0:
+        status = false;
 
-    # Flap
-    if Input.is_action_just_pressed("flap"):
-        self.velocity.y = flap_velocity * -1;
-        self.rotation = PI / -5;
+    if status:
+        # Fall
+        self.velocity.y += gravity;
+        if self.rotation < PI / 2 and self.velocity.y >= 0:
+            self.rotation += tilt;
 
-    # Set Position
-    move_and_slide();
+        # Flap
+        if Input.is_action_just_pressed("flap"):
+            self.velocity.y = flap_velocity * -1;
+            self.rotation = PI / -5;
+
+        # Set Position
+        move_and_slide();
