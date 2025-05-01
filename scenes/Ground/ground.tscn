@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4dlgmc8s3wpj"]
+[gd_scene load_steps=3 format=3 uid="uid://c4dlgmc8s3wpj"]
 
 [ext_resource type="Texture2D" uid="uid://sqi3pfrg8h01" path="res://import/SpriteSheet.webp" id="1_us132"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us132"]
+size = Vector2(154, 55)
+
 [node name="Ground" type="Area2D"]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_us132")
 region_enabled = true
 region_rect = Rect2(146, 0, 154, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_us132")
