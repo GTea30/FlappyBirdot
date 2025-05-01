@@ -12,5 +12,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     # Fall
     self.velocity.y += gravity;
+
+    # Flap
+    if Input.is_action_just_pressed("flap"):
+        self.velocity.y = flap_velocity * -1;
+
+    # Set Position
     move_and_slide();
-    pass
