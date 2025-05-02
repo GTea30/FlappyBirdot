@@ -12,6 +12,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     if Input.is_action_just_pressed("reset"):
         get_tree().reload_current_scene();
+    if Input.is_action_just_pressed("exit"):
+        get_tree().quit();
 
 
 func _on_player_dead() -> void:
@@ -23,3 +25,4 @@ func _on_player_dead() -> void:
 func _on_pipe_timer_timeout() -> void:
     var new_pipes: Pipes = pipes.instantiate();
     add_child(new_pipes);
+    $PipeTimer.wait_time = randf_range(1.5, 2);
