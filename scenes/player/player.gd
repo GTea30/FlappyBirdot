@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
     if get_slide_collision_count() > 0:
         status = false;
         dead.emit()
+        $AnimatedSprite2D.stop();
 
     # Fall
     if not is_on_floor():
