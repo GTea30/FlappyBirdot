@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var min_distance: int = 0;
+@export var min_distance: int = 30;
 @export var max_distance: int = 10;
 
 @export var max_y_pos: int = 124;
