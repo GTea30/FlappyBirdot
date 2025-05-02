@@ -8,6 +8,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_k2fmo")
+pipes = ExtResource("5_6q06x")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(72, 128)
@@ -23,4 +24,8 @@ z_index = 1
 position = Vector2(78, 228)
 
 [node name="Pipes" parent="." instance=ExtResource("5_6q06x")]
-position = Vector2(124, 80)
+position = Vector2(168, 80)
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
