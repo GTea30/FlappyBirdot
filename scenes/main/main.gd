@@ -13,11 +13,13 @@ func _process(delta: float) -> void:
     if Input.is_action_just_pressed("reset"):
         get_tree().reload_current_scene();
 
+
 func _on_player_dead() -> void:
     $Ground/AnimationPlayer.pause();
     # Stop Pipes
     get_tree().call_group("pipes", "stop");
-    
+
+
 func _on_pipe_timer_timeout() -> void:
     var new_pipes: Pipes = pipes.instantiate();
     add_child(new_pipes);
