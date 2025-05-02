@@ -1,12 +1,12 @@
 class_name Pipes extends Node2D;
 
 @export var min_distance: int = 30;
-@export var max_distance: int = 10;
+@export var max_distance: int = 40;
 
 @export var max_y_pos: int = 124;
 @export var min_y_pos: int = 80;
 
-@export var speed: int = 5;
+@export var speed: float = 60;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

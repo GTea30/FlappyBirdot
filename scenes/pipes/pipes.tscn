@@ -11,8 +11,6 @@ size = Vector2(26, 120)
 
 [node name="Pipes" type="Node2D" groups=["pipes"]]
 script = ExtResource("1_ls657")
-max_distance = 50
-speed = 35
 
 [node name="TopPipe" type="StaticBody2D" parent="."]
 collision_layer = 2
