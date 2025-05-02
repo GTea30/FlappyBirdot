@@ -1,11 +1,13 @@
 extends Node2D
 
 @export var pipes: PackedScene;
+var score = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     $Player.dead.connect(_on_player_dead);
     $PipeTimer.timeout.connect(_on_pipe_timer_timeout);
+    $Pipes.score.connect(_on_pipe_score);
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,5 +27,10 @@ func _on_player_dead() -> void:
 
 func _on_pipe_timer_timeout() -> void:
     var new_pipes: Pipes = pipes.instantiate();
+    new_pipes.score.connect(_on_pipe_score);
     add_child(new_pipes);
     $PipeTimer.wait_time = randf_range(1, 1.5);
+
+func _on_pipe_score():
+    score += 1;
+    $UI/Score.text = str(score);

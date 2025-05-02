@@ -1,5 +1,7 @@
 class_name Pipes extends Node2D;
 
+signal score;
+
 @export var min_distance: int = 30;
 @export var max_distance: int = 40;
 
@@ -10,7 +12,10 @@ class_name Pipes extends Node2D;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    $VisibleOnScreenNotifier2D.screen_exited.connect(_one_visible_on_screen_notifier_2d_screen_exited);
+    $VisibleOnScreenNotifier2D.screen_exited.connect(
+        _one_visible_on_screen_notifier_2d_screen_exited
+    );
+    $ScoreArea.body_entered.connect(_on_score_area_body_entered);
     _move_pipes();
     pass # Replace with function body.
 
@@ -29,6 +34,11 @@ func _move_pipes() -> void:
 
     $TopPipe.position.y -= distance;
     $BottomPipe.position.y += distance;
+
+
+func _on_score_area_body_entered(_body) -> void:
+    score.emit();
+
 
 func _one_visible_on_screen_notifier_2d_screen_exited() -> void:
     queue_free();
